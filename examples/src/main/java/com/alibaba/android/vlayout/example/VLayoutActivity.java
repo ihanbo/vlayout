@@ -163,6 +163,7 @@ public class VLayoutActivity extends Activity {
 
         final List<DelegateAdapter.Adapter> adapters = new LinkedList<>();
 
+        //0
         if (BANNER_LAYOUT) {
             adapters.add(new SubAdapter(this, new LinearLayoutHelper(), 1) {
 
@@ -213,6 +214,7 @@ public class VLayoutActivity extends Activity {
         //    adapters.add(new SubAdapter(this, helper, 80));
         //}
 
+        //1
         if (FLOAT_LAYOUT) {
             FloatLayoutHelper layoutHelper = new FloatLayoutHelper();
             layoutHelper.setAlignType(FixLayoutHelper.BOTTOM_RIGHT);
@@ -221,12 +223,15 @@ public class VLayoutActivity extends Activity {
             adapters.add(new SubAdapter(this, layoutHelper, 1, layoutParams));
         }
 
+
         if (LINEAR_LAYOUT) {
+            //2
             LinearLayoutHelper layoutHelper1 = new LinearLayoutHelper();
             layoutHelper1.setBgColor(Color.YELLOW);
             layoutHelper1.setAspectRatio(2.0f);
             layoutHelper1.setMargin(10, 10, 10, 10);
             layoutHelper1.setPadding(10, 10, 10, 10);
+            //3-8
             LinearLayoutHelper layoutHelper2 = new LinearLayoutHelper();
             layoutHelper2.setAspectRatio(4.0f);
             layoutHelper2.setDividerHeight(10);
@@ -264,6 +269,7 @@ public class VLayoutActivity extends Activity {
             });
         }
 
+        //9-31
 		{
             RangeGridLayoutHelper layoutHelper = new RangeGridLayoutHelper(4);
             layoutHelper.setBgColor(Color.GREEN);
@@ -272,6 +278,8 @@ public class VLayoutActivity extends Activity {
             layoutHelper.setMargin(15, 50, 15, 150);
             layoutHelper.setHGap(10);
             layoutHelper.setVGap(10);
+
+            //7个
             GridRangeStyle rangeStyle = new GridRangeStyle();
             rangeStyle.setBgColor(Color.RED);
             rangeStyle.setSpanCount(2);
@@ -280,8 +288,9 @@ public class VLayoutActivity extends Activity {
             rangeStyle.setMargin(15, 15, 15, 15);
             rangeStyle.setHGap(5);
             rangeStyle.setVGap(5);
-            layoutHelper.addRangeStyle(0, 7, rangeStyle);
+            layoutHelper.addRangeStyle(0, 6, rangeStyle);
 
+            //9个
             GridRangeStyle rangeStyle1 = new GridRangeStyle();
             rangeStyle1.setBgColor(Color.YELLOW);
             rangeStyle1.setSpanCount(2);
@@ -290,8 +299,9 @@ public class VLayoutActivity extends Activity {
             rangeStyle1.setMargin(15, 15, 15, 15);
             rangeStyle1.setHGap(5);
             rangeStyle1.setVGap(5);
-            layoutHelper.addRangeStyle(8, 15, rangeStyle1);
+            layoutHelper.addRangeStyle(7, 15, rangeStyle1);
 
+            //7个
             GridRangeStyle rangeStyle2 = new GridRangeStyle();
             rangeStyle2.setBgColor(Color.CYAN);
             rangeStyle2.setSpanCount(2);
@@ -301,6 +311,7 @@ public class VLayoutActivity extends Activity {
             rangeStyle2.setHGap(5);
             rangeStyle2.setVGap(5);
             layoutHelper.addRangeStyle(16, 22, rangeStyle2);
+
             GridRangeStyle rangeStyle3 = new GridRangeStyle();
             rangeStyle3.setBgColor(Color.DKGRAY);
             rangeStyle3.setSpanCount(1);
@@ -310,9 +321,10 @@ public class VLayoutActivity extends Activity {
             rangeStyle3.setHGap(5);
             rangeStyle3.setVGap(5);
             rangeStyle2.addChildRangeStyle(0, 2, rangeStyle3);
+
             GridRangeStyle rangeStyle4 = new GridRangeStyle();
             rangeStyle4.setBgColor(Color.BLUE);
-            rangeStyle4.setSpanCount(2);
+            rangeStyle4.setSpanCount(3);
             rangeStyle4.setWeights(new float[]{46.665f});
             rangeStyle4.setPadding(15, 15, 15, 15);
             rangeStyle4.setMargin(15, 15, 15, 15);
@@ -320,6 +332,7 @@ public class VLayoutActivity extends Activity {
             rangeStyle4.setVGap(5);
             rangeStyle2.addChildRangeStyle(3, 6, rangeStyle4);
 
+            //8个
             GridRangeStyle rangeStyle5 = new GridRangeStyle();
             rangeStyle5.setBgColor(Color.RED);
             rangeStyle5.setSpanCount(2);
@@ -328,9 +341,10 @@ public class VLayoutActivity extends Activity {
             rangeStyle5.setHGap(5);
             rangeStyle5.setVGap(5);
             layoutHelper.addRangeStyle(23, 30, rangeStyle5);
+
             GridRangeStyle rangeStyle6 = new GridRangeStyle();
             rangeStyle6.setBgColor(Color.MAGENTA);
-            rangeStyle6.setSpanCount(2);
+            rangeStyle6.setSpanCount(3);
             rangeStyle6.setPadding(15, 15, 15, 15);
             rangeStyle6.setMargin(15, 15, 15, 15);
             rangeStyle6.setHGap(5);
@@ -339,19 +353,21 @@ public class VLayoutActivity extends Activity {
 
             adapters.add(new SubAdapter(this, layoutHelper, 23));
         }
-		
+
+        //32
         {
             SingleLayoutHelper layoutHelper = new SingleLayoutHelper();
             layoutHelper.setBgColor(Color.BLUE);
             layoutHelper.setMargin(0, 30, 0, 200);
-            adapters.add(new SubAdapter(this, layoutHelper, 1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)));
+            adapters.add(new SubAdapter(this, layoutHelper, 1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200)));
         }
 
+        //33
         if (STICKY_LAYOUT) {
             StickyLayoutHelper layoutHelper = new StickyLayoutHelper();
             //layoutHelper.setOffset(100);
             layoutHelper.setAspectRatio(4);
-            adapters.add(new SubAdapter(this, layoutHelper, 1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)));
+            adapters.add(new SubAdapter(this, layoutHelper, 1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 700)));
         }
 
         //{
@@ -374,26 +390,30 @@ public class VLayoutActivity extends Activity {
         //}
         {
 
-            final GridLayoutHelper helper = new GridLayoutHelper(3, 4);
+            //34-37
+            final GridLayoutHelper helper = new GridLayoutHelper(3, 10);
             helper.setBgColor(0xFF86345A);
+            helper.setAutoExpand(false);
             adapters.add(new SubAdapter(this, helper, 4) {
                 @Override
                 public void onBindViewHolder(MainViewHolder holder, int position) {
                     super.onBindViewHolder(holder, position);
-                    LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
+                    LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 600);
                     holder.itemView.setLayoutParams(layoutParams);
                 }
             });
         }
 
         {
+            //38-53
             RangeGridLayoutHelper layoutHelper = new RangeGridLayoutHelper(4);
             layoutHelper.setBgColor(Color.GREEN);
-            layoutHelper.setWeights(new float[]{20f, 26.665f});
+            layoutHelper.setWeights(new float[]{20f, 40f});
             layoutHelper.setPadding(15, 15, 15, 15);
             layoutHelper.setMargin(15, 15, 15, 15);
             layoutHelper.setHGap(10);
             layoutHelper.setVGap(10);
+
             GridRangeStyle rangeStyle = new GridRangeStyle();
             rangeStyle.setBgColor(Color.RED);
             rangeStyle.setSpanCount(2);
@@ -403,6 +423,7 @@ public class VLayoutActivity extends Activity {
             rangeStyle.setHGap(5);
             rangeStyle.setVGap(5);
             layoutHelper.addRangeStyle(4, 7, rangeStyle);
+
             GridRangeStyle rangeStyle1 = new GridRangeStyle();
             rangeStyle1.setBgColor(Color.YELLOW);
             rangeStyle1.setSpanCount(2);
@@ -412,10 +433,12 @@ public class VLayoutActivity extends Activity {
             rangeStyle1.setHGap(5);
             rangeStyle1.setVGap(5);
             layoutHelper.addRangeStyle(8, 11, rangeStyle1);
+
             adapters.add(new SubAdapter(this, layoutHelper, 16));
 
         }
 
+        //54
         if (SINGLE_LAYOUT) {
             SingleLayoutHelper layoutHelper = new SingleLayoutHelper();
             layoutHelper.setBgColor(Color.rgb(135, 225, 90));
@@ -425,6 +448,7 @@ public class VLayoutActivity extends Activity {
             adapters.add(new SubAdapter(this, layoutHelper, 1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)));
         }
 
+        //55-59
         if (COLUMN_LAYOUT) {
             ColumnLayoutHelper layoutHelper = new ColumnLayoutHelper();
             layoutHelper.setBgColor(0xff00f0f0);
@@ -447,6 +471,7 @@ public class VLayoutActivity extends Activity {
             });
         }
 
+        //60-61
         if (ONEN_LAYOUT) {
             OnePlusNLayoutHelper helper = new OnePlusNLayoutHelper();
             helper.setBgColor(0xff876384);
@@ -457,6 +482,7 @@ public class VLayoutActivity extends Activity {
             adapters.add(new SubAdapter(this, helper, 2));
         }
 
+        //62-65
         if (ONEN_LAYOUT) {
             OnePlusNLayoutHelper helper = new OnePlusNLayoutHelper();
             helper.setBgColor(0xffef8ba3);
@@ -482,12 +508,13 @@ public class VLayoutActivity extends Activity {
             });
         }
 
+        //66-68
         if (ONEN_LAYOUT) {
             adapters.add(new SubAdapter(this, new OnePlusNLayoutHelper(), 0));
             OnePlusNLayoutHelper helper = new OnePlusNLayoutHelper();
             helper.setBgColor(0xff87e543);
             helper.setAspectRatio(1.8f);
-            helper.setColWeights(new float[]{33.33f, 50f, 40f});
+            helper.setColWeights(new float[]{33.33f, 66.66f, 33.33f});
             helper.setMargin(10, 20, 10, 20);
             helper.setPadding(10, 10, 10, 10);
             LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -497,17 +524,19 @@ public class VLayoutActivity extends Activity {
                     super.onBindViewHolder(holder, position);
                     LayoutParams lp = (LayoutParams) holder.itemView.getLayoutParams();
                     if (position == 0) {
-                        lp.rightMargin = 1;
+                        lp.rightMargin = 100;
                     }
                 }
             });
         }
 
+        //69-72
         if (COLUMN_LAYOUT) {
             adapters.add(new SubAdapter(this, new ColumnLayoutHelper(), 0));
             adapters.add(new SubAdapter(this, new ColumnLayoutHelper(), 4));
         }
 
+        //73
         if (FIX_LAYOUT) {
             FixLayoutHelper layoutHelper = new FixLayoutHelper(10, 10);
             adapters.add(new SubAdapter(this, layoutHelper, 0));
@@ -518,7 +547,7 @@ public class VLayoutActivity extends Activity {
                 @Override
                 public void onBindViewHolder(MainViewHolder holder, int position) {
                     super.onBindViewHolder(holder, position);
-                    LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200);
+                    LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 600);
                     holder.itemView.setLayoutParams(layoutParams);
                 }
             });
@@ -532,6 +561,7 @@ public class VLayoutActivity extends Activity {
         //    adapters.add(new SubAdapter(this, layoutHelper, 1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)));
         //}
 
+        //74-83
         if (GRID_LAYOUT) {
             GridLayoutHelper layoutHelper = new GridLayoutHelper(2);
             layoutHelper.setMargin(7, 0, 7, 0);
@@ -547,8 +577,9 @@ public class VLayoutActivity extends Activity {
         }
 
 
+        //84-163
         if (GRID_LAYOUT) {
-            adapters.add(new SubAdapter(this, new GridLayoutHelper(4), 0));
+           // adapters.add(new SubAdapter(this, new GridLayoutHelper(4), 0));
 
             GridLayoutHelper helper = new GridLayoutHelper(4);
             helper.setAspectRatio(4f);
@@ -566,6 +597,7 @@ public class VLayoutActivity extends Activity {
             });
         }
 
+        //164
         if (FIX_LAYOUT) {
             adapters.add(new SubAdapter(this, new ScrollFixLayoutHelper(20, 20), 1) {
                 @Override
@@ -577,15 +609,18 @@ public class VLayoutActivity extends Activity {
             });
         }
 
+        //165-174
         if (LINEAR_LAYOUT)
             adapters.add(new SubAdapter(this, new LinearLayoutHelper(), 10));
 
+        //175-177
         if (GRID_LAYOUT) {
             GridLayoutHelper helper = new GridLayoutHelper(3);
             helper.setMargin(0, 10, 0, 10);
             adapters.add(new SubAdapter(this, helper, 3));
         }
 
+        //178-204
         if (STAGGER_LAYOUT) {
             // adapters.add(new SubAdapter(this, new StaggeredGridLayoutHelper(2, 0), 0));
             final StaggeredGridLayoutHelper helper = new StaggeredGridLayoutHelper(2, 10);
