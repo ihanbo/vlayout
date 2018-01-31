@@ -338,8 +338,8 @@ public class VLayoutActivity extends Activity {
             rangeStyle5.setSpanCount(2);
             rangeStyle5.setPadding(15, 15, 15, 15);
             rangeStyle5.setMargin(15, 15, 15, 15);
-            rangeStyle5.setHGap(5);
-            rangeStyle5.setVGap(5);
+            rangeStyle5.setHGap(25);
+            rangeStyle5.setVGap(25);
             layoutHelper.addRangeStyle(23, 30, rangeStyle5);
 
             GridRangeStyle rangeStyle6 = new GridRangeStyle();
@@ -391,9 +391,18 @@ public class VLayoutActivity extends Activity {
         {
 
             //34-37
-            final GridLayoutHelper helper = new GridLayoutHelper(3, 10);
+            final GridLayoutHelper helper = new GridLayoutHelper(3);
             helper.setBgColor(0xFF86345A);
             helper.setAutoExpand(false);
+//            helper.setSpanSizeLookup(new GridLayoutHelper.SpanSizeLookup() {
+//                @Override
+//                public int getSpanSize(int position) {
+//                    if(position==37){
+//                        return 2;
+//                    }
+//                    return 1;
+//                }
+//            });
             adapters.add(new SubAdapter(this, helper, 4) {
                 @Override
                 public void onBindViewHolder(MainViewHolder holder, int position) {
@@ -599,7 +608,9 @@ public class VLayoutActivity extends Activity {
 
         //164
         if (FIX_LAYOUT) {
-            adapters.add(new SubAdapter(this, new ScrollFixLayoutHelper(20, 20), 1) {
+            ScrollFixLayoutHelper sfh = new ScrollFixLayoutHelper(20, 20);
+            sfh.setShowType(ScrollFixLayoutHelper.SHOW_ON_ENTER);
+            adapters.add(new SubAdapter(this, sfh, 1) {
                 @Override
                 public void onBindViewHolder(MainViewHolder holder, int position) {
                     super.onBindViewHolder(holder, position);
