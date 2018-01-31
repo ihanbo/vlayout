@@ -1,6 +1,24 @@
 # vlayout
 
-[English Document](README.md)
+
+#vlayout
+
+
+xxxxxx
+
+[Tangram-文档说明](http://tangram.pingguohe.net/docs/layout-support/fix-layout)
+
+
+1.  layoutHelper.setWeights方法：参数为：new float[]{20f, 26.665f}
+设置每一列的weight，**参数有几个就是前几列的weight，后面的列均分**（总数100）如：`angeStyle1.setWeights(new float[]{46f})`表示第一列占46%宽，剩下的列均分剩下的54%宽
+2. GridRangeStyle可以添加子style
+
+
+3. FloatLayoutHelper layoutHelper = new FloatLayoutHelper();
+ layoutHelper.setDefaultLocation(100, 400);??
+4. layoutHelper.setAspectRatio(4);和LayoutParams是冲突的，setAspectRatio优先级要高
+
+
 
 ## Tangram 相关开源库
 
